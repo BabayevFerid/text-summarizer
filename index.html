@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text Summarizer</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Browser-based Text Summarizer (AZ/EN) with ratio or sentence count options." />
+</head>
+<body>
+  <header class="container header">
+    <h1>🧠 Text Summarizer</h1>
+    <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <div class="card-header">
+        <h2>Giriş mətni</h2>
+        <div class="stats" id="stats">0 söz · 0 hərf</div>
+      </div>
+      <textarea id="inputText" placeholder="Xülasə etmək istədiyin mətni bura yapışdır..."></textarea>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="mode">Rejim</label>
+          <select id="mode">
+            <option value="ratio">Nisbət (mətnin % hissəsi)</option>
+            <option value="sentences">Cümlə sayı</option>
+          </select>
+        </div>
+
+        <div class="control-group" id="ratioGroup">
+          <label for="ratio">Nisbət: <span id="ratioLabel">0.25</span></label>
+          <input type="range" id="ratio" min="0.05" max="0.9" step="0.05" value="0.25" />
+        </div>
+
+        <div class="control-group hidden" id="countGroup">
+          <label for="count">Cümlə sayı</label>
+          <input type="number" id="count" min="1" value="3" />
+        </div>
+
+        <div class="control-group">
+          <label for="language">Dil</label>
+          <select id="language">
+            <option value="auto">Auto (AZ/EN)</option>
+            <option value="az">Azərbaycan dili</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label>
+            <input type="checkbox" id="keepOrder" checked />
+            Cümlə sırasını saxla
+          </label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnSummarize" class="primary">Xülasə et</button>
+        <button id="btnSample">Sample</button>
+        <button id="btnClear">Təmizlə</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Xülasə</h2>
+        <div class="stats" id="outStats">0 söz · 0 hərf</div>
+      </div>
+      <textarea id="outputText" readonly placeholder="Xülasə burada görsənəcək..."></textarea>
+      <div class="actions">
+        <button id="btnCopy">Kopyala</button>
+        <button id="btnDownload">Yüklə (.txt)</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>MIT License • <a href="https://github.com/">GitHub üçün hazır</a></small>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/summarizer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
