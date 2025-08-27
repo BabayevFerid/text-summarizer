@@ -13,4 +13,4 @@ Brauzerdə işləyən, asılılıqsız **mətn xülasələyici** (extractive sum
 
 ## 🚀 İşə salmaq
 1) Reponu klonla və ya yüklə  
-2) `index.html` faylını brauzerdə aç – vəssalam!
+2) `index.html` faylını brauzerdə aç 
